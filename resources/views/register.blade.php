@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="/register-submit" method="post">
+        @csrf
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ old('name') }}" >
+        @error('name')
+            <div style="color: red;">{{ $message }}</div>
+            @enderror
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" value="{{ old('email') }}" >
+        @error('email')
+            <div style="color: red;">{{ $message }}</div>
+            @enderror
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" >
+        @error('password')
+            <div style="color: red;">{{ $message }}</div>
+            @enderror
+        <br><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
